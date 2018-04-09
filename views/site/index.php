@@ -34,6 +34,7 @@ $competencias=CompetenciaGenerica::find()->all();
 
 $verFormaciones=0;
 $verDiplomados=false;
+$verDiplomados=0;
 $verLineas=false;
 $verNoticias=false;
 
