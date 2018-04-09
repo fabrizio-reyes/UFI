@@ -54,8 +54,7 @@ div.ex2 {
     overflow: hidden;
 }
 </style>
-
-kdbsdbsdjk
+jose
 		<div class="-container"> 
 			<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 				<ol class="carousel-indicators" >
