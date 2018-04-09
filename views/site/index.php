@@ -159,7 +159,9 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 							<h4 class="panel-title">
 							  <a  title="Expandir" data-toggle="collapse" data-parent="#accordion1" href="#collapse<?= $Datos->dat_codigo?>"><div class="pull-left"><?= $Datos->dat_titulo?></div><div class="pull-right"><i class="fa fa-angle-double-down" aria-hidden="true"></i></div></a>
 								<a></a><a></a>
+								<?php if(!Yii::$app->user->isGuest){ ?>
 	<?= Html::a(" <i class=' ace-icon fa fa-pencil ' style='font-size:25px;color:black;text-align:end;' data-toggle='tooltip' data-placement='top' title='Editar Dato UFI'></i>", ['#dat'.$Datos->dat_codigo],[''=>'','style'=>'text-align:end;width:359px;','data-toggle'=>'modal','data-target'=>'#dat'.$Datos->dat_codigo]) ?>
+								<?php } ?>
 								<div id="dat<?= $Datos->dat_codigo?>"  style="position: table !important; overflow: auto; /* Enable scroll if needed */		
 						background-color: rgb(0,0,0); /* Fallback color */
 						background-color: rgba(0,0,0,0.4); /* Black w/ opacity */" data-backdrop="false" class="modal fade">
@@ -207,7 +209,7 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 			for($i=0;$i<sizeof($formaciones);$i++){
 				if($formaciones[$i]->sec_codigo==$seccion->sec_codigo){ 
 				$verFormaciones++;
-				$seccionesfor=SeccionFormacion::find()->where('for_codigo='.$formaciones[$i]->for_codigo)->all();
+				$seccionesfor=SeccionFormacion::find()->where('for_codigo='.$formaciones[$i]->for_codigo)->orderby("sec_for_numero")->all();
 				$competenciasformacion=CompetenciaFormacion::find()->where('for_codigo='.$formaciones[$i]->for_codigo)->all();				
 				if($verFormaciones==5){
 					echo '	<div id="verfor" class="collapse">';}
@@ -256,50 +258,52 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 									<div class="modal-body ">                                  								  
 										<div class="row">
 											<div class="col-xs-12 col-sm-12 col-lg-12 perfil-form text-left">
-												<div class="table-responsive">
+												<div class="table-responsive" style="border:1px solid #000;">
 													<table class="table table-bordered ">
 														
 														<tbody>
 															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="text-align:justify;font-family:sans-serif;background:#b5e61d" >Nombre</th>
-																<td style="text-align:center;"><?= $formaciones[$i]->for_nombre?></td>																
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Asignatura</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_nombre?></td>																
 															</tr>
 															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="text-align:justify;font-family:sans-serif;background:#b5e61d" >Descripción</th>
-																<td style="text-align:center;"><?= $formaciones[$i]->for_nombre?></td>																
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Descripción</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_descripcion?></td>																
 															</tr>
 															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="text-align:justify;font-family:sans-serif;background:#b5e61d" >Código</th>
-																<td style="text-align:center;"><?= $formaciones[$i]->for_nombre?></td>																
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Código</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_codigo_asignatura?></td>																
 															</tr>
 															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="text-align:justify;font-family:sans-serif;background:#b5e61d" >Carreras</th>
-																<td style="text-align:center;"><?= $formaciones[$i]->for_nombre?></td>																
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Carreras</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_carreras?></td>																
 															</tr>
 															
 															<tr style="background:#e3e3e3;color:#43273c;">													
-																<td style="text-align:center;"><?= $formaciones[$i]->for_nombre?></td>																	
-																<td style="text-align:center;"><?= $formaciones[$i]->for_descripcion?></td>																	
-																<td style="text-align:center;"><?= $formaciones[$i]->for_codigo?></td>																	
-																<td style="text-align:center;"><?= $formaciones[$i]->for_carreras?></td>
-																		
-																<td style="text-align:center;">
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Competencias Genéricas</th>	
+																<td style="border:1px solid #000;text-align:justify;">
 																<?php foreach($competenciasformacion as $sf=>$competenciafor){
 																		foreach($competencias as $c=>$competencia){
 																			if($competencia->cg_codigo==$competenciafor->cg_codigo){
-																				echo 'Competencia '.($sf+1).'</br>'.$competencia->cg_nombre.'</br></br>';
+																				echo '-'.$competencia->cg_nombre.'</br>';
 																			}
 																		}
 																	
 																	
-																}?></td>
-																	<?php foreach($seccionesfor as $sf=>$seccionfor){
-															echo '<th style="text-align:justify;font-family:sans-serif;" >'.$sf.'</th>																	  															
-															<th style="text-align:justify;font-family:sans-serif;" >'.$sf.'</th>																	  															
-															<th style="text-align:justify;font-family:sans-serif;" >'.$sf.'</th>																	  															
-															<th style="text-align:justify;font-family:sans-serif;" >'.$sf.'</th>';
-															 } ?>
+																}?></td>					
 															</tr>
+															
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Secciones</th>	
+																<td style="border:1px solid #000;text-align:justify;">
+																<?php foreach($seccionesfor as $sf=>$seccionfor){																		
+																	echo 	'Sección '.$seccionfor->sec_for_numero.':</br>
+																			Docente: '.$seccionfor->sec_for_docente.'</br>
+																			Horario: '.$seccionfor->sec_for_horario.'</br>
+																			Lugar; '.$seccionfor->sec_for_lugar.'</br></br>
+																	';																																																																	
+																}?></td>					
+															</tr>										
 														</tbody>
 													</table>		
 												</div>							
