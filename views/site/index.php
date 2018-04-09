@@ -44,25 +44,48 @@ $colorback=1;
 <div id="#top"></div>
 	<section id="home">
 <style>
-div.ex3 {
-    height: 635px;
-    overflow: hidden;
+tr.ex1{
+	background:#e3e3e3;
+	color:#43273c;
 }
-
 div.ex2 {
     height: 635px;
     overflow: hidden;
 }
+div.ex3 {
+    height: 635px;
+    overflow: hidden;
+}
+li.ex4{
+	background-color:white;
+	border:2px solid #000;
+}
+th.ex5{
+	border:1px solid #000;
+	text-align:justify;
+	font-family:sans-serif;
+	background:#b5e61d;
+}
+td.ex6{
+	border:1px solid #000;
+	text-align:justify;
+}
+th.ex7{
+	border:1px solid #000;
+	text-align:justify;
+	font-family:sans-serif;
+	background:#19a1ab;
+}
 </style>
-fabrizio4
+
 		<div class="-container"> 
 			<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 				<ol class="carousel-indicators" >
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="0" class="active"></li>
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="1"></li>
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="2"></li>
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="3"></li>
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="4"></li>
+					<li class="ex4" data-target="#carousel" data-slide-to="0" class="active"></li>
+					<li class="ex4" data-target="#carousel" data-slide-to="1"></li>
+					<li class="ex4" data-target="#carousel" data-slide-to="2"></li>
+					<li class="ex4" data-target="#carousel" data-slide-to="3"></li>
+					<li class="ex4" data-target="#carousel" data-slide-to="4"></li>
 				</ol>
 				<!-- Carousel items -->
 				<div class="ex2">
@@ -262,26 +285,26 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 													<table class="table table-bordered ">
 														
 														<tbody>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Asignatura</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_nombre?></td>																
+															<tr class="ex1">													
+																<th class="ex5" >Asignatura</th>
+																<td class="ex6"><?= $formaciones[$i]->for_nombre?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Descripción</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_descripcion?></td>																
+															<tr class="ex1">													
+																<th class="ex5" >Descripción</th>
+																<td class="ex6"><?= $formaciones[$i]->for_descripcion?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Código</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_codigo_asignatura?></td>																
+															<tr class="ex1">													
+																<th class="ex5" >Código</th>
+																<td class="ex6"><?= $formaciones[$i]->for_codigo_asignatura?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Carreras</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $formaciones[$i]->for_carreras?></td>																
+															<tr class="ex1">													
+																<th class="ex5" >Carreras</th>
+																<td class="ex6"><?= $formaciones[$i]->for_carreras?></td>																
 															</tr>
 															
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Competencias Genéricas</th>	
-																<td style="border:1px solid #000;text-align:justify;">
+															<tr class="ex1">													
+																<th class="ex5" >Competencias Genéricas</th>	
+																<td class="ex6">
 																<?php foreach($competenciasformacion as $sf=>$competenciafor){
 																		foreach($competencias as $c=>$competencia){
 																			if($competencia->cg_codigo==$competenciafor->cg_codigo){
@@ -293,9 +316,9 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 																}?></td>					
 															</tr>
 															
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Secciones</th>	
-																<td style="border:1px solid #000;text-align:justify;">
+															<tr class="ex1">													
+																<th class="ex5" >Secciones</th>	
+																<td class="ex6" >
 																<?php foreach($seccionesfor as $sf=>$seccionfor){																		
 																	echo 	'Sección '.$seccionfor->sec_for_numero.':</br>
 																			Docente: '.$seccionfor->sec_for_docente.'</br>
@@ -706,38 +729,38 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 													<table class="table table-bordered ">
 														
 														<tbody>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Nombre</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_nombre?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Nombre</th>
+																<td class="ex6" ><?= $diplomados[$i]->dip_nombre?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Descripción</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_descripcion?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Descripción</th>
+																<td class="ex6"><?= $diplomados[$i]->dip_descripcion?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Objetivo General</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_objetivo_general?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Objetivo General</th>
+																<td class="ex6"><?= $diplomados[$i]->dip_objetivo_general?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Objetivos Específicos</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_objetivos_especificos?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Objetivos Específicos</th>
+																<td class="ex6"><?= $diplomados[$i]->dip_objetivos_especificos?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Orientado a </th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_orientado?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Orientado a </th>
+																<td class="ex6"><?= $diplomados[$i]->dip_orientado?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Horario</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_horario?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Horario</th>
+																<td class="ex6"><?= $diplomados[$i]->dip_horario?></td>																
 															</tr>
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Contacto</th>
-																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_contacto?></td>																
+															<tr class="ex1">													
+																<th class="ex7" >Contacto</th>
+																<td class="ex6"><?= $diplomados[$i]->dip_contacto?></td>																
 															</tr>
 															
-															<tr style="background:#e3e3e3;color:#43273c;">													
-																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Competencias Genéricas</th>	
-																<td style="border:1px solid #000;text-align:justify;">
+															<tr class="ex1">													
+																<th class="ex7" >Competencias Genéricas</th>	
+																<td class="ex6">
 																<?php foreach($competenciasdiplomados as $sf=>$competenciasdip){
 																		foreach($competencias as $c=>$competencia){
 																			if($competencia->cg_codigo==$competenciasdip->cg_codigo){
