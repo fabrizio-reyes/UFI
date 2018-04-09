@@ -2,6 +2,7 @@
 use app\models\Seccion;
 use app\models\FormacionIntegral;
 use app\models\SeccionFormacion;
+use app\models\CompetenciaDiplomado;
 use app\models\Personal;
 use app\models\Enlace;
 use app\models\Linea;
@@ -53,6 +54,8 @@ div.ex2 {
     overflow: hidden;
 }
 </style>
+
+egzeAg
 
 
 		<div class="-container"> 
@@ -650,48 +653,146 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 <!--			<a style="background:#438EB9;"  class="btn btn-success btn-block" id="" href="">Ver todas</a> -->
 			</div>
 	<?php
-			for ($i=0;$i<sizeof($diplomados);$i++){
-				if($diplomados[$i]->sec_codigo==$seccion->sec_codigo){ ?>				
-			<div class="col-md-3 text-center"> 
+			
+	for($i=0;$i<sizeof($diplomados);$i++){
+				if($diplomados[$i]->sec_codigo==$seccion->sec_codigo){ 
+				$verDiplomados++;
+				$competenciasdiplomados=CompetenciaDiplomado::find()->where('dip_codigo='.$diplomados[$i]->dip_codigo)->all();				
+				if($verDiplomados==5){
+					echo '	<div id="verdip" class="collapse">';}
+				?>
+			
+			<div class="col-sm-3 text-center"> 				 
 				<div class="box-item">
 	<?php if(!Yii::$app->user->isGuest){ ?>
-	<?= Html::a(" <i class=' ace-icon fa fa-pencil' style='font-size:25px;color:black;' data-toggle='tooltip' data-placement='top' title='Editar Diplomado'></i>", ['#dip'.$diplomados[$i]->dip_codigo],[''=>'','style'=>'text-align:end;margin-right: 0px;','data-toggle'=>'modal','data-target'=>'#dip'.$diplomados[$i]->dip_codigo]) ?>
-	<?php } ?>
+	<?= Html::a(" <i class=' ace-icon fa fa-pencil ' style='font-size:25px;color:black;' data-toggle='tooltip' data-placement='top' title='Editar Diplomado'></i>", ['#dip'.$diplomados[$i]->dip_codigo],[''=>'','style'=>'text-align:end;margin-right: 0px;','data-toggle'=>'modal','data-target'=>'#dip'.$diplomados[$i]->dip_codigo]) ?>
+	<?php } ?>	
 					<div id="dip<?= $diplomados[$i]->dip_codigo?>"  style="position: table !important; overflow: auto; /* Enable scroll if needed */
 						background-color: rgb(0,0,0); /* Fallback color */
 						background-color: rgba(0,0,0,0.4); /* Black w/ opacity */" data-backdrop="false" class="modal fade">
-							<div class="modal-dialog">
-								<div class="modal-content modal-lg">										  
-									<div id="modal-wizard-container3">
-										<div class="modal-header">
-												<h4 class="green">Editando Diplomado <?= $diplomados[$i]->dip_nombre?> <button type="button" class="pull-right close" data-dismiss="modal">&times;</button></h4> 
-										</div>
-										<div class="modal-body ">																			  
-											<div class="row">
-												<div class="col-xs-2 col-sm-6 col-lg-12 perfil-form text-left">
-	<?= $this->render('/diplomado/update', ['model' => $diplomados[$i],'id' => $diplomados[$i]->dip_codigo,]) ?>												
-												</div>
-											</div>  
-										</div>
-										<div class="modal-footer wizard-actions">
-											<button class="btn btn-danger btn-sm pull-right" data-dismiss="modal"><i class="ace-icon fa fa-times"></i>Cerrar</button>
-										</div>
-									</div>                                
-								</div>
+						<div class="modal-dialog" >
+							<div class="modal-content modal-lg">							  
+								<div id="modal-wizard-container2">
+									<div class="modal-header">
+										<h4 class="green">Editando Diplomado <?= $diplomados[$i]->dip_nombre?> <button type="button" class="pull-right close" data-dismiss="modal">&times;</button></h4>
+									</div>
+									<div class="modal-body ">                                  								  
+										<div class="row">
+											<div class="col-xs-2 col-sm-6 col-lg-12 perfil-form text-left">
+											<?php
+											?>
+	<?= $this->render('/diplomado/update', ['model' => $diplomados[$i],'id' => $diplomados[$i]->dip_codigo,]) ?>										
+											</div>
+										</div>								   
+									</div>
+									<div class="modal-footer wizard-actions">
+										<button class="btn btn-danger btn-sm pull-right" data-dismiss="modal"><i class="ace-icon fa fa-times"></i>Cerrar</button>
+									</div>
+								</div>											
 							</div>
+						</div>
+					</div>
+					
+					<div id="dipo<?= $diplomados[$i]->dip_codigo?>"  style="position: table !important; overflow: auto; /* Enable scroll if needed */
+						background-color: rgb(0,0,0); /* Fallback color */
+						background-color: rgba(0,0,0,0.4); /* Black w/ opacity */" data-backdrop="false" class="modal fade">
+						<div class="modal-dialog" >
+							<div class="modal-content modal-lg">							  
+								<div id="modal-wizard-container2">
+									<div class="modal-header">
+										<h4 class="green"> Diplomado <?= $diplomados[$i]->dip_nombre?> <button type="button" class="pull-right close" data-dismiss="modal">&times;</button></h4>
+									</div>
+									<div class="modal-body ">                                  								  
+										<div class="row">
+											<div class="col-xs-12 col-sm-12 col-lg-12 perfil-form text-left">
+												<div class="table-responsive" style="border:1px solid #000;">
+													<table class="table table-bordered ">
+														
+														<tbody>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Nombre</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_nombre?></td>																
+															</tr>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Descripción</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_descripcion?></td>																
+															</tr>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Objetivo General</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_objetivo_general?></td>																
+															</tr>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Objetivos Específicos</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_objetivos_especificos?></td>																
+															</tr>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Orientado a </th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_orientado?></td>																
+															</tr>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Horario</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_horario?></td>																
+															</tr>
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Contacto</th>
+																<td style="border:1px solid #000;text-align:justify;"><?= $diplomados[$i]->dip_contacto?></td>																
+															</tr>
+															
+															<tr style="background:#e3e3e3;color:#43273c;">													
+																<th style="border:1px solid #000;text-align:justify;font-family:sans-serif;background:#b5e61d" >Competencias Genéricas</th>	
+																<td style="border:1px solid #000;text-align:justify;">
+																<?php foreach($competenciasdiplomados as $sf=>$competenciasdip){
+																		foreach($competencias as $c=>$competencia){
+																			if($competencia->cg_codigo==$competenciasdip->cg_codigo){
+																				echo '-'.$competencia->cg_nombre.'</br>';
+																			}
+																		}
+																	
+																	
+																}?></td>					
+															</tr>																																						
+														</tbody>
+													</table>		
+												</div>							
+											</div>
+										</div>								   
+									</div>
+									<div class="modal-footer wizard-actions">
+										<button class="btn btn-danger btn-sm pull-right" data-dismiss="modal"><i class="ace-icon fa fa-times"></i>Cerrar</button>
+									</div>
+								</div>											
+							</div>
+						</div>
 					</div>
 					<i class="circle"><img src="images/5.png" alt=""></i>
 					<h3><?= $diplomados[$i]->dip_nombre?></h3>
-					<p><?= substr( $diplomados[$i]->dip_descripcion,0,100).'...'?></p>
+					<p><?=substr( $diplomados[$i]->dip_descripcion,0,100).'...'?></p>
+					<?= Html::a(" Ver Información sobre el Diplomado", ['#dipo'.$diplomados[$i]->dip_codigo],[''=>'','style'=>'color:black;background-color:#438eb9;width:100%;margin-right:0px;font-size:13px;font-weight:bold;','data-toggle'=>'modal','data-target'=>'#dipo'.$diplomados[$i]->dip_codigo]) ?>
+					
+					
 				</div>
-			</div> 
-			<?php if($i==(sizeof($diplomados)-1)){
-				echo '<div class="col-sm-12">
-						<a style="color:blue; text-align:left; font-size:20px; text-decoration:underline;" href="http://localhost/ufi/web/index.php#2"><p style="color:blue;">
-						Ver Todas</p></a>
-						</div>';
-			}?>
-	<?php }}		
+			</br></div>
+			
+			<?php 
+			if($verDiplomados==(sizeof($diplomados))){
+				echo '</div>
+				<div class=" text-center col-sm-12">
+				</br></br>
+				<button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#verdip">Ver Todas</button>
+				</br></br>
+				</div>';
+						
+			}
+			}} 
+
+
+
+
+
+
+
+
+	
 	for($i=(sizeof($noticias)-1);$i>=0;$i--){
 				if($noticias[$i]->sec_codigo==$seccion->sec_codigo){ 
 					//$archivopersona=Archivo::find()->where('arc_codigo=select()')->all();			
