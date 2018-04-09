@@ -54,9 +54,13 @@ div.ex2 {
     overflow: hidden;
 }
 </style>
+<<<<<<< HEAD
 
 egzeAg
 
+=======
+jajaja
+>>>>>>> e73569ab187cc679ba26c565d41648934bd263d4
 
 		<div class="-container"> 
 			<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
