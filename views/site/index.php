@@ -54,7 +54,7 @@ div.ex2 {
     overflow: hidden;
 }
 </style>
-fabrizio2
+fabrizio4
 		<div class="-container"> 
 			<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 				<ol class="carousel-indicators" >
