@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cc3d57894362d94054e6e6098e8daab",
+    "content-hash": "9d7361d71e7afc0e9c74b8c36197b795",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -374,12 +374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "7889c96f786c5cafd7a7325b432d774029835647"
+                "reference": "627574fcb01903ee2a623f9aa6406131e60f84fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/7889c96f786c5cafd7a7325b432d774029835647",
-                "reference": "7889c96f786c5cafd7a7325b432d774029835647",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/627574fcb01903ee2a623f9aa6406131e60f84fc",
+                "reference": "627574fcb01903ee2a623f9aa6406131e60f84fc",
                 "shasum": ""
             },
             "require": {
@@ -426,7 +426,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2018-04-04T23:06:29+00:00"
+            "time": "2018-04-26T18:16:41+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -434,12 +434,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "58382e62e592b7cd800ab1e9f4a3cf54f3663cce"
+                "reference": "19f490d018fad90e3cedbbf4260a1685a37a44ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/58382e62e592b7cd800ab1e9f4a3cf54f3663cce",
-                "reference": "58382e62e592b7cd800ab1e9f4a3cf54f3663cce",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/19f490d018fad90e3cedbbf4260a1685a37a44ae",
+                "reference": "19f490d018fad90e3cedbbf4260a1685a37a44ae",
                 "shasum": ""
             },
             "require": {
@@ -480,7 +480,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2018-03-21T16:16:19+00:00"
+            "time": "2018-04-26T18:20:00+00:00"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -3499,30 +3499,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "dev-master",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ed5fd2281113729f1ebcc64d101ad66028aeb3d5"
+                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ed5fd2281113729f1ebcc64d101ad66028aeb3d5",
-                "reference": "ed5fd2281113729f1ebcc64d101ad66028aeb3d5",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/34369daee48eafb2651bea869b4b15d75ccc35f9",
+                "reference": "34369daee48eafb2651bea869b4b15d75ccc35f9",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1",
-                "sebastian/diff": "^3.0",
+                "php": "^7.0",
+                "sebastian/diff": "^2.0 || ^3.0",
                 "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.1"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -3559,7 +3559,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2018-04-18T13:33:00+00:00"
+            "time": "2018-02-01T13:46:46+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -4714,12 +4714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "e1b381ec6f6090843b775b9f621614464eefeab8"
+                "reference": "b0b358a2135a10927e8509c6f5ffe6455443c0f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/e1b381ec6f6090843b775b9f621614464eefeab8",
-                "reference": "e1b381ec6f6090843b775b9f621614464eefeab8",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/b0b358a2135a10927e8509c6f5ffe6455443c0f0",
+                "reference": "b0b358a2135a10927e8509c6f5ffe6455443c0f0",
                 "shasum": ""
             },
             "require": {
@@ -4753,7 +4753,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2018-04-25T22:05:03+00:00"
+            "time": "2018-04-26T18:11:44+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
@@ -4761,12 +4761,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-faker.git",
-                "reference": "6fd989e79369a8b8e79099e4d5098fc44faa6176"
+                "reference": "c266225382f6f286606dc8b8cd6cda4ad4d4dd19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/6fd989e79369a8b8e79099e4d5098fc44faa6176",
-                "reference": "6fd989e79369a8b8e79099e4d5098fc44faa6176",
+                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/c266225382f6f286606dc8b8cd6cda4ad4d4dd19",
+                "reference": "c266225382f6f286606dc8b8cd6cda4ad4d4dd19",
                 "shasum": ""
             },
             "require": {
@@ -4800,7 +4800,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2018-04-04T16:39:34+00:00"
+            "time": "2018-04-26T18:19:21+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",
@@ -4808,12 +4808,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-gii.git",
-                "reference": "21436e931e99f8a00c8f286f11e71a0e12441d49"
+                "reference": "92abc8deb5d5dcb4df5ff26e0a2529c2dc543616"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/21436e931e99f8a00c8f286f11e71a0e12441d49",
-                "reference": "21436e931e99f8a00c8f286f11e71a0e12441d49",
+                "url": "https://api.github.com/repos/yiisoft/yii2-gii/zipball/92abc8deb5d5dcb4df5ff26e0a2529c2dc543616",
+                "reference": "92abc8deb5d5dcb4df5ff26e0a2529c2dc543616",
                 "shasum": ""
             },
             "require": {
@@ -4853,7 +4853,7 @@
                 "gii",
                 "yii2"
             ],
-            "time": "2018-04-12T21:51:36+00:00"
+            "time": "2018-04-26T18:14:53+00:00"
         }
     ],
     "aliases": [],

@@ -26,6 +26,7 @@ use app\assets\AppAsset;
 use kartik\editable\Editable;
 use kartik\widgets\Growl;
 use app\models\SeccionFormacion;
+use kartik\sortable\Sortable;
 
 
 AppAsset::register($this);
@@ -536,7 +537,21 @@ if($secciones[$i]->sec_codigo==6 //&& Yii::$app->user->isGuest
 											
                                   
                                  <div class="modal-body " >
-													 
+										<?php echo Sortable::widget([
+										'items'=>[
+											['content'=>$secciones[1]->sec_nombre],
+											['content'=>$secciones[2]->sec_nombre],
+											['content'=>$secciones[3]->sec_nombre],
+											['content'=>$secciones[4]->sec_nombre],
+										]
+									]);
+									
+									for($i=0;$i<sizeof($items);$i++){
+										echo $items[$i]->content;
+									}
+									?>
+									
+									</br></br></br>
                                    <ol>
 									<li class="list-group-item list-group-item-action">
 									 <?= Html::a('Perfil', ['/perfil']) ?>

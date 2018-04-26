@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
 use kartik\sortinput\SortableInput;
+use app\models\Seccion;
+$secciones=Seccion::find()->orderby("sec_orden")->all();
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Seccion */
@@ -48,19 +50,19 @@ use kartik\sortinput\SortableInput;
 		
     <?= $form->field($model, 'sec_descripcion')->textInput(['maxlength' => true]) ?>
 	
-	<!--<?php	
-		echo $form->field($model, 'sec_codigo')->widget(SortableInput::classname(), [
+	<?php	
+		/* echo $form->field($secciones, 'sec_codigo')->widget(SortableInput::classname(), [
 			'items' => [
-				1 => ['content' => 'sec_nombre'],
-				2 => ['content' => 'sec_nombre'],
-				3 => ['content' => 'sec_nombre'],
-				4 => ['content' => 'sec_nombre'],
-				5 => ['content' => 'sec_nombre'],
+				1 => ['content' => $secciones[1]->sec_nombre],
+				2 => ['content' => $secciones[2]->sec_nombre],
+				3 => ['content' => $secciones[3]->sec_nombre],
+				4 => ['content' => $secciones[4]->sec_nombre],
+				5 => ['content' => $secciones[5]->sec_nombre],
 					],
 					'hideInput' => false,
 					'options' => ['class'=>'form-control', 'readonly'=>true]
-				]);
-	?>-->		
+				]); */
+	?>	
 
     <?= $form->field($model, 'sec_orden')->hiddenInput()->label(false) ?>
 
