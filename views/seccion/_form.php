@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\tinymce\TinyMce;
+use kartik\sortinput\SortableInput;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Seccion */
@@ -46,6 +47,20 @@ use dosamigos\tinymce\TinyMce;
 		]); ?> -->
 		
     <?= $form->field($model, 'sec_descripcion')->textInput(['maxlength' => true]) ?>
+	
+	<!--<?php	
+		echo $form->field($model, 'sec_codigo')->widget(SortableInput::classname(), [
+			'items' => [
+				1 => ['content' => 'sec_nombre'],
+				2 => ['content' => 'sec_nombre'],
+				3 => ['content' => 'sec_nombre'],
+				4 => ['content' => 'sec_nombre'],
+				5 => ['content' => 'sec_nombre'],
+					],
+					'hideInput' => false,
+					'options' => ['class'=>'form-control', 'readonly'=>true]
+				]);
+	?>-->		
 
     <?= $form->field($model, 'sec_orden')->hiddenInput()->label(false) ?>
 
