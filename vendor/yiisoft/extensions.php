@@ -255,8 +255,7 @@ return array (
       '@bilginnet/cropper' => $vendorDir . '/bilginnet/yii2-cropper/src',
     ),
   ),
-<<<<<<< HEAD
-=======
+
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',
@@ -266,7 +265,6 @@ return array (
       '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
     ),
   ),
->>>>>>> origin/master
   'yiisoft/yii2-bootstrap' => 
   array (
     'name' => 'yiisoft/yii2-bootstrap',
