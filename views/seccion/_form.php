@@ -15,20 +15,9 @@ use dosamigos\tinymce\TinyMce;
 
     <?php $form = ActiveForm::begin(["action"=>$_SERVER['SCRIPT_NAME'].'/seccion/update/'.$model->sec_codigo]); ?>
 
-    <!--<?= $form->field($model, 'sec_nombre')->textInput(['maxlength' => true]) ?>-->
+    <?= $form->field($model, 'sec_nombre')->textInput(['maxlength' => true]) ?>
 	
-	<?= $form->field($model, 'sec_nombre')->widget(TinyMce::className(), [
-		'options' => ['rows' => 6, 'id'=>'sec_nombre'.$model->sec_codigo],
-		'language' => 'es',
-		'clientOptions' => [
-		'plugins' => [
-			"advlist autolink lists link charmap print preview anchor textcolor",
-			"searchreplace visualblocks code fullscreen",
-			"insertdatetime media table contextmenu paste"
-		],
-		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
-		]
-		]);?>
+	
     <!--<?= $form->field($model, 'sec_titulo')->textInput(['maxlength' => true]) ?>-->
 
 	<?= $form->field($model, 'sec_titulo')->widget(TinyMce::className(), [
@@ -44,8 +33,18 @@ use dosamigos\tinymce\TinyMce;
 		]
 		]);?>
 		
-    <?= $form->field($model, 'sec_descripcion')->textInput(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'sec_descripcion')->widget(TinyMce::className(), [
+		'options' => ['rows' => 6, 'id'=>'sec_descripcion'.$model->sec_codigo],
+		'language' => 'es',
+		'clientOptions' => [
+		'plugins' => [
+			"advlist autolink lists link charmap print preview anchor textcolor",
+			"searchreplace visualblocks code fullscreen",
+			"insertdatetime media table contextmenu paste"
+		],
+		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
+		]
+		]);?>
     <?= $form->field($model, 'sec_orden')->hiddenInput()->label(false) ?>
 
     <div class="form-group">

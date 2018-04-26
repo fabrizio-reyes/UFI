@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Seccion;
 use yii\helpers\ArrayHelper;
-
+use dosamigos\tinymce\TinyMce;
 /* @var $this yii\web\View */
 /* @var $model app\models\Noticia */
 /* @var $form yii\widgets\ActiveForm */
@@ -18,7 +18,18 @@ use yii\helpers\ArrayHelper;
 
     <?= $form->field($model, 'not_subtitulo')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'not_descripcion')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'not_descripcion')->widget(TinyMce::className(), [
+		'options' => ['rows' => 6, 'id'=>'not_descripcion'.$model->sec_codigo],
+		'language' => 'es',
+		'clientOptions' => [
+		'plugins' => [
+			"advlist autolink lists link charmap print preview anchor textcolor",
+			"searchreplace visualblocks code fullscreen",
+			"insertdatetime media table contextmenu paste"
+		],
+		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
+		]
+		]);?>
 
     <?= $form->field($model, 'not_enlace')->textInput(['maxlength' => true]) ?>
 

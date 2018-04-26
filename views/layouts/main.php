@@ -370,8 +370,9 @@ $this->registerJs($script);
 					</div>
 				</div>
 				
-				<?php // if(!Yii::$app->user->isGuest){ ?>
-	<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle">Crear Nuevo <i class="glyphicon glyphicon-plus"></i></a>
+				<?php  if(!Yii::$app->user->isGuest){ ?>
+					<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle">Crear Nuevo <i class="glyphicon glyphicon-plus"></i></a>
+				<?php } ?>
 <div id="sidebar-wrapper">
 	<ul class="sidebar-nav">
 		<a id="menu-close" href="#" class="btn btn-default btn-lg pull-right toggle"><i class="glyphicon glyphicon-remove"></i></a>
@@ -471,7 +472,8 @@ $this->registerJs($script);
 			
 		  for($i=0;$i<sizeof($secciones);$i++){
 if($secciones[$i]->sec_codigo==6 //&& Yii::$app->user->isGuest
-			  ){ continue; }
+			  ){ //continue; 
+			  }
 		  ?>
 		  <li><a href="#sec-<?= $secciones[$i]->sec_orden?>" class="scroll-link"><?= $secciones[$i]->sec_nombre?></a> 
 			<?php
@@ -691,7 +693,7 @@ if($secciones[$i]->sec_codigo==6 //&& Yii::$app->user->isGuest
 <section class="copyright">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center"> Copyright 2018 | All Rights Reserved -- Template by -  <a href="http://webThemez.com"> WebThemez.com</a> </div>
+      <div class="col-sm-12 text-center"> Copyright 2018 | All Rights Reserved -- Powered by Fabrizio & José </div>
 	</div>
     <!-- / .row --> 
   </div>

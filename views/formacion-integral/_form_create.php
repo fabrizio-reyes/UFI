@@ -47,14 +47,19 @@ $this->registerJs($js);
 
     <!--<?= $form->field($model, 'sec_codigo')->textInput() ?>-->
 	
-	<?= $form->field($model, 'sec_codigo')->dropDownList($dataCategory, 
-             ['prompt'=>'-Seleccione un tipo-',
-              'onchange'=>'
-                $.post( "'.Yii::$app->urlManager->createUrl('post/lists?id=').'"+$(this).val(), function( data ) {
-                  $( "select#title" ).html( data );
-                });
-            ']); 
-	?>
+		<?= $form->field($model, 'sec_codigo')->radioList($dataCategory,
+              [
+                'item' => function($index, $label, $name, $checked, $value) {
+					$return = '<label class="col-sm-12">';
+                    $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" tabindex="3">';
+                    $return .= '<i></i>';
+                    $return .= '<span>' . ucwords($label) . '</span>';
+                    $return .= '</label><br/>';
+					return $return;
+                }
+               ]
+         );
+    ?>
 	
 	<?= Html::checkboxList('competencias', '',$dataCategory2,
 		['name'=>'competencias','separator' => '<br/>'

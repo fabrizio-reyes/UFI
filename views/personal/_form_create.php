@@ -25,14 +25,20 @@ use yii\helpers\ArrayHelper;
     <!--<?= $form->field($model, 'sec_codigo')->textInput(['maxlength' => true]) ?>-->
     
     <?php $dataCategory=ArrayHelper::map(Seccion::find()->All(), 'sec_codigo', 'sec_nombre'); ?>
-	<?= $form->field($model, 'sec_codigo')->dropDownList($dataCategory, 
-             ['prompt'=>'-Seleccione un tipo-',
-              'onchange'=>'
-                $.post( "'.Yii::$app->urlManager->createUrl('post/lists?id=').'"+$(this).val(), function( data ) {
-                  $( "select#title" ).html( data );
-                });
-            ']); 
-	?>
+	<?php $dataCategory=ArrayHelper::map(Seccion::find()->All(), 'sec_codigo', 'sec_nombre'); ?>
+		<?= $form->field($model, 'sec_codigo')->radioList($dataCategory,
+              [
+                'item' => function($index, $label, $name, $checked, $value) {
+					$return = '<label class="col-sm-12">';
+                    $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" tabindex="3">';
+                    $return .= '<i></i>';
+                    $return .= '<span>' . ucwords($label) . '</span>';
+                    $return .= '</label><br/>';
+					return $return;
+                }
+               ]
+         );
+    ?>
 
     <div class="form-group">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>

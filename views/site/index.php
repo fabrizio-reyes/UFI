@@ -54,24 +54,20 @@ div.ex2 {
     overflow: hidden;
 }
 </style>
-fabrizio4
+
 		<div class="-container"> 
 			<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
 				<ol class="carousel-indicators" >
 					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="0" class="active"></li>
 					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="1"></li>
 					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="2"></li>
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="3"></li>
-					<li style="background-color:white;border:2px solid #000;" data-target="#carousel" data-slide-to="4"></li>
 				</ol>
 				<!-- Carousel items -->
 				<div class="ex2">
 				<div class="carousel-inner">
-					<div class="active item"><img src="images/k.png" alt="banner" width="100%" ></div>
-					<div class=" item"><img  src="images/banner-bg.jpg" alt="banner"   width="100%" /></div>
-					<div class=" item"><img  src="images/ufi3.jpg" alt="banner"  width="100% " ></div>
-					<div class=" item"><img src="images/l.jpg" alt="banner"  width="100%" ></div>
-					<div class=" item"><img  src="images/ufi5.jpg" alt="banner"  width="100%" ></div>
+					<div class="active item"><img src="/ufi/web/archivos/3_DSC_0353.jpg" alt="banner" width="100%" ></div>
+					<div class=" item"><img  src="/ufi/web/archivos/2_DSC_0277.jpg" alt="banner"   width="100%" /></div>
+					<div class=" item"><img  src="/ufi/web/archivos/2_DSC_0268.jpg" alt="banner"   width="100%" /></div>
 				</div>
 				</div>
 				<!-- Carousel nav -->
@@ -93,7 +89,8 @@ fabrizio4
 	foreach ($secciones as $s=>$seccion){
 		
 if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
-		){ continue; }
+		){ //continue; 
+		}
 		$colorback++;
         
 	?>
