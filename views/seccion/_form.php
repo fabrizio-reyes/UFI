@@ -15,9 +15,9 @@ use dosamigos\tinymce\TinyMce;
 
     <?php $form = ActiveForm::begin(["action"=>$_SERVER['SCRIPT_NAME'].'/seccion/update/'.$model->sec_codigo]); ?>
 
-    <!--<?= $form->field($model, 'sec_nombre')->textInput(['maxlength' => true]) ?>-->
+    <?= $form->field($model, 'sec_nombre')->textInput(['maxlength' => true]) ?>
 	
-	<?= $form->field($model, 'sec_nombre')->widget(TinyMce::className(), [
+	<!-- <?=  $form->field($model, 'sec_nombre')->widget(TinyMce::className(), [
 		'options' => ['rows' => 6, 'id'=>'sec_nombre'.$model->sec_codigo],
 		'language' => 'es',
 		'clientOptions' => [
@@ -28,10 +28,11 @@ use dosamigos\tinymce\TinyMce;
 		],
 		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
 		]
-		]);?>
-    <!--<?= $form->field($model, 'sec_titulo')->textInput(['maxlength' => true]) ?>-->
+		]);  ?> -->
+		
+    <?= $form->field($model, 'sec_titulo')->textInput(['maxlength' => true]) ?>
 
-	<?= $form->field($model, 'sec_titulo')->widget(TinyMce::className(), [
+	<!-- <?=  $form->field($model, 'sec_titulo')->widget(TinyMce::className(), [
 		'options' => ['rows' => 6, 'id'=>'sec_titulo'.$model->sec_codigo],
 		'language' => 'es',
 		'clientOptions' => [
@@ -42,7 +43,7 @@ use dosamigos\tinymce\TinyMce;
 		],
 		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
 		]
-		]);?>
+		]); ?> -->
 		
     <?= $form->field($model, 'sec_descripcion')->textInput(['maxlength' => true]) ?>
 

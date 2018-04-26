@@ -699,8 +699,7 @@ if($seccion->sec_codigo==6 //&& Yii::$app->user->isGuest
 									<div class="modal-body ">                                  								  
 										<div class="row">
 											<div class="col-xs-2 col-sm-6 col-lg-12 perfil-form text-left">
-											<?php
-											?>
+											
 	<?= $this->render('/diplomado/update', ['model' => $diplomados[$i],'id' => $diplomados[$i]->dip_codigo,]) ?>										
 											</div>
 										</div>								   
@@ -980,7 +979,4 @@ $(document).ready(function(){
 	$(document).ready(function(){
     $('[data-toggle="popover"]').popover();   
 });
- 
-
- 
 </script>

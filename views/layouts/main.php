@@ -535,6 +535,9 @@ if($secciones[$i]->sec_codigo==6 //&& Yii::$app->user->isGuest
 											
                                   
                                  <div class="modal-body " >
+								 
+								
+								 
                                    <ol>
 									<li class="list-group-item list-group-item-action">
 									 <?= Html::a('Perfil', ['/perfil']) ?>
