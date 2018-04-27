@@ -47,7 +47,28 @@ $secciones=Seccion::find()->orderby("sec_orden")->all();
 		],
 		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
 		]
+
 		]);?>
+
+
+		
+    <?= $form->field($model, 'sec_descripcion')->textInput(['maxlength' => true]) ?>
+	
+	<?php	
+		/* echo $form->field($model, 'sec_codigo')->widget(SortableInput::classname(), [
+			'items' => [
+				1 => ['content' => 'sec_nombre'],
+				2 => ['content' => 'sec_nombre'],
+				3 => ['content' => 'sec_nombre'],
+				4 => ['content' => 'sec_nombre'],
+				5 => ['content' => 'sec_nombre'],
+					],
+					'hideInput' => false,
+					'options' => ['class'=>'form-control', 'readonly'=>true]
+				]); */
+	?>		
+
+
     <?= $form->field($model, 'sec_orden')->hiddenInput()->label(false) ?>
 
     <div class="form-group">

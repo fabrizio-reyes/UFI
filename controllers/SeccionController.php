@@ -79,60 +79,6 @@ class SeccionController extends Controller
     public function actionCreate()
     {
         $model = new Seccion();
-
-       
-		
-		 $modelCatalogOption = new CatalogOption;
-        $modelsOptionValue = [new OptionValue];
-        if ($modelCatalogOption->load(Yii::$app->request->post())) {
-
-            $modelsOptionValue = Model::createMultiple(OptionValue::classname());
-            Model::loadMultiple($modelsOptionValue, Yii::$app->request->post());
-            foreach ($modelsOptionValue as $index => $modelOptionValue) {
-                $modelOptionValue->sort_order = $index;
-                $modelOptionValue->img = \yii\web\UploadedFile::getInstance($modelOptionValue, "[{$index}]img");
-            }
-
-            // ajax validation
-            if (Yii::$app->request->isAjax) {
-                Yii::$app->response->format = Response::FORMAT_JSON;
-                return ArrayHelper::merge(
-                    ActiveForm::validateMultiple($modelsOptionValue),
-                    ActiveForm::validate($modelCatalogOption)
-                );
-            }
-
-            // validate all models
-            $valid = $modelCatalogOption->validate();
-            $valid = Model::validateMultiple($modelsOptionValue) && $valid;
-
-            if ($valid) {
-                $transaction = \Yii::$app->db->beginTransaction();
-                try {
-                    if ($flag = $modelCatalogOption->save(false)) {
-                        foreach ($modelsOptionValue as $modelOptionValue) {
-                            $modelOptionValue->catalog_option_id = $modelCatalogOption->id;
-
-                            if (($flag = $modelOptionValue->save(false)) === false) {
-                                $transaction->rollBack();
-                                break;
-                            }
-                        }
-                    }
-                    if ($flag) {
-                        $transaction->commit();
-                        return $this->redirect(['view', 'id' => $modelCatalogOption->id]);
-                    }
-                } catch (Exception $e) {
-                    $transaction->rollBack();
-                }
-            }
-        }
-
-        return $this->render('create', [
-            'modelCatalogOption' => $modelCatalogOption,
-            'modelsOptionValue' => (empty($modelsOptionValue)) ? [new OptionValue] : $modelsOptionValue
-        ]);
 		
 		 return $this->render('create', [
             'model' => $model,

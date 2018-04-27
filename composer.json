@@ -35,8 +35,7 @@
 		"wbraganca/yii2-dynamicform": "*",
 		"skinka/yii2-alert-gritter": "*",
 		"bilginnet/yii2-cropper": "dev-master",
-		"kartik-v/yii2-sortable-input": "*",
-		"kartik-v/yii2-sortable": "*"
+		"kartik-v/yii2-sortable-input": "*"
 		
 		
     },
