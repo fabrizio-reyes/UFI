@@ -38,7 +38,7 @@ class Seccion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['sec_nombre', 'sec_titulo', 'sec_orden'], 'required'],
+            [['sec_orden'], 'required'],
             [['sec_orden'], 'integer'],
             [['sec_nombre'], 'string', 'max' => 50],
             [['sec_titulo'], 'string', 'max' => 100],

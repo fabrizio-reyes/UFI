@@ -20,22 +20,10 @@ $secciones=Seccion::find()->orderby("sec_orden")->all();
 
     <?= $form->field($model, 'sec_nombre')->textInput(['maxlength' => true]) ?>
 	
-	<!-- <?=  $form->field($model, 'sec_nombre')->widget(TinyMce::className(), [
-		'options' => ['rows' => 6, 'id'=>'sec_nombre'.$model->sec_codigo],
-		'language' => 'es',
-		'clientOptions' => [
-		'plugins' => [
-			"advlist autolink lists link charmap print preview anchor textcolor",
-			"searchreplace visualblocks code fullscreen",
-			"insertdatetime media table contextmenu paste"
-		],
-		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
-		]
-		]);  ?> -->
-		
-    <?= $form->field($model, 'sec_titulo')->textInput(['maxlength' => true]) ?>
+	
+    <!--<?= $form->field($model, 'sec_titulo')->textInput(['maxlength' => true]) ?>-->
 
-	<!-- <?=  $form->field($model, 'sec_titulo')->widget(TinyMce::className(), [
+	<?= $form->field($model, 'sec_titulo')->widget(TinyMce::className(), [
 		'options' => ['rows' => 6, 'id'=>'sec_titulo'.$model->sec_codigo],
 		'language' => 'es',
 		'clientOptions' => [
@@ -46,24 +34,20 @@ $secciones=Seccion::find()->orderby("sec_orden")->all();
 		],
 		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
 		]
-		]); ?> -->
+		]);?>
 		
-    <?= $form->field($model, 'sec_descripcion')->textInput(['maxlength' => true]) ?>
-	
-	<?php	
-		/* echo $form->field($secciones, 'sec_codigo')->widget(SortableInput::classname(), [
-			'items' => [
-				1 => ['content' => $secciones[1]->sec_nombre],
-				2 => ['content' => $secciones[2]->sec_nombre],
-				3 => ['content' => $secciones[3]->sec_nombre],
-				4 => ['content' => $secciones[4]->sec_nombre],
-				5 => ['content' => $secciones[5]->sec_nombre],
-					],
-					'hideInput' => false,
-					'options' => ['class'=>'form-control', 'readonly'=>true]
-				]); */
-	?>	
-
+    <?= $form->field($model, 'sec_descripcion')->widget(TinyMce::className(), [
+		'options' => ['rows' => 6, 'id'=>'sec_descripcion'.$model->sec_codigo],
+		'language' => 'es',
+		'clientOptions' => [
+		'plugins' => [
+			"advlist autolink lists link charmap print preview anchor textcolor",
+			"searchreplace visualblocks code fullscreen",
+			"insertdatetime media table contextmenu paste"
+		],
+		'toolbar' => "formatselect | bold italic  strikethrough  forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat"
+		]
+		]);?>
     <?= $form->field($model, 'sec_orden')->hiddenInput()->label(false) ?>
 
     <div class="form-group">

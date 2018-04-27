@@ -48,7 +48,20 @@ $dataCategory=ArrayHelper::map(Linea::find()->All(), 'lin_codigo', 'lin_nombre')
                 });
             ']); 
 	?>
-
+	
+	<?= $form->field($model, 'lin_codigo')->radioList($dataCategory,
+              [
+                'item' => function($index, $label, $name, $checked, $value) {
+					$return = '<label class="modal-radio">';
+                    $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" tabindex="3">';
+                    $return .= '<i></i>';
+                    $return .= '<span>' . ucwords($label) . '</span>';
+                    $return .= '</label>';
+					return $return;
+                }
+               ]
+         );
+    ?>
     <div class="form-group">
         <?= Html::submitButton('Guardar', ['class' => 'btn btn-success']) ?>
     </div>

@@ -255,6 +255,7 @@ return array (
       '@bilginnet/cropper' => $vendorDir . '/bilginnet/yii2-cropper/src',
     ),
   ),
+
   'kartik-v/yii2-krajee-base' => 
   array (
     'name' => 'kartik-v/yii2-krajee-base',

@@ -34,7 +34,7 @@ $this->registerJs($js);
 
 <div class="linea-form">
 
-    <?php $form = ActiveForm::begin(["id" => 'dynamic-form',"action"=>$_SERVER['SCRIPT_NAME'].'/linea/create']); ?>
+    <?php $form = ActiveForm::begin(["id" => 'dynamic-form2',"action"=>$_SERVER['SCRIPT_NAME'].'/linea/create']); ?>
 
     <?= $form->field($model, 'lin_nombre')->textInput(['maxlength' => true]) ?>
 	
@@ -56,14 +56,7 @@ $this->registerJs($js);
 	<?= $form->field($model, 'sec_codigo')->hiddenInput()->label(false) ?>-->
    
         
-	<?= $form->field($model, 'sec_codigo')->dropDownList($dataCategory, 
-             ['prompt'=>'-Seleccione un tipo-',
-              'onchange'=>'
-                $.post( "'.Yii::$app->urlManager->createUrl('post/lists?id=').'"+$(this).val(), function( data ) {
-                  $( "select#title" ).html( data );
-                });
-            ']); 
-	?>
+	
 	
 	<?= $form->field($model, 'cg_codigo')->dropDownList($dataCategory3, 
              ['prompt'=>'-Seleccione un tipo-',
@@ -74,6 +67,21 @@ $this->registerJs($js);
             ']); 
 	?>
 	
+	<?php $dataCategory=ArrayHelper::map(Seccion::find()->All(), 'sec_codigo', 'sec_nombre'); ?>
+		<?= $form->field($model, 'sec_codigo')->radioList($dataCategory,
+              [
+                'item' => function($index, $label, $name, $checked, $value) {
+					$return = '<label class="col-sm-12">';
+                    $return .= '<input type="radio" name="' . $name . '" value="' . $value . '" tabindex="3">';
+                    $return .= '<i></i>';
+                    $return .= '<span>' . ucwords($label) . '</span>';
+                    $return .= '</label><br/>';
+					return $return;
+                }
+               ]
+         );
+    ?>
+	
 	<?php DynamicFormWidget::begin([
         'widgetContainer' => 'dynamicform_wrapper_linea', // required: only alphanumeric characters plus "_" [A-Za-z0-9_]
         'widgetBody' => '.container-items_linea', // required: css class selector
@@ -83,7 +91,7 @@ $this->registerJs($js);
         'insertButton' => '.add-item_linea', // css class
         'deleteButton' => '.remove-item_linea', // css class
         'model' => $talleres[0],
-        'formId' => 'dynamic-form',
+        'formId' => 'dynamic-form2',
         'formFields' => [
             'tal_codigo',
             'tal_nombre',
@@ -104,7 +112,7 @@ $this->registerJs($js);
                 <div class="item_linea panel panel-default"><!-- widgetBody -->
                     <div class="panel-heading">
                         <span class="panel-title-taller">Taller: <?= ($index + 1) ?></span>
-                        <button type="button" class="pull-right remove-item btn_linea btn-danger btn-xs"><i class="fa fa-minus"></i></button>
+                        <button type="button" class="pull-right remove-item_linea btn_linea btn-danger btn-xs"><i class="fa fa-minus"></i></button>
                         <div class="clearfix"></div>
                     </div>
                     <div class="panel-body">
